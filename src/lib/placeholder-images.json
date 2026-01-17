@@ -1,3 +1,94 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "game-banner-1",
+      "description": "Banner for Starfall Adventures",
+      "imageUrl": "https://images.unsplash.com/photo-1432958576632-8a39f6b97dc7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmYW50YXN5JTIwbGFuZHNjYXBlfGVufDB8fHx8MTc2ODY1NjU1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fantasy landscape"
+    },
+    {
+      "id": "game-logo-1",
+      "description": "Logo for Starfall Adventures",
+      "imageUrl": "https://images.unsplash.com/photo-1705951432048-c13b8f923eaa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzd29yZCUyMGVtYmxlbXxlbnwwfHx8fDE3Njg2NzE5Mjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sword emblem"
+    },
+    {
+      "id": "game-banner-2",
+      "description": "Banner for Cybernetic Horizon",
+      "imageUrl": "https://images.unsplash.com/photo-1707999464758-0ad86b14290f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y3liZXJwdW5rJTIwY2l0eXxlbnwwfHx8fDE3Njg2NzE5Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cyberpunk city"
+    },
+    {
+      "id": "game-logo-2",
+      "description": "Logo for Cybernetic Horizon",
+      "imageUrl": "https://images.unsplash.com/photo-1678982154012-33239ad7d3fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjaXJjdWl0JTIwbG9nb3xlbnwwfHx8fDE3Njg2NzE5Mjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "circuit logo"
+    },
+    {
+      "id": "game-banner-3",
+      "description": "Banner for Petopia",
+      "imageUrl": "https://images.unsplash.com/photo-1560114928-40f1f1eb26a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjdXRlJTIwYW5pbWFsc3xlbnwwfHx8fDE3Njg2NzE5Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cute animals"
+    },
+    {
+      "id": "game-logo-3",
+      "description": "Logo for Petopia",
+      "imageUrl": "https://images.unsplash.com/photo-1621636910807-9a23d910c4d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwYXclMjBwcmludHxlbnwwfHx8fDE3Njg2NzE5Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "paw print"
+    },
+    {
+      "id": "item-1",
+      "description": "Celestial Blade item",
+      "imageUrl": "https://images.unsplash.com/photo-1761853321587-032c565edea7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxnbG93aW5nJTIwc3dvcmR8ZW58MHx8fHwxNzY4NTgzNzY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "glowing sword"
+    },
+    {
+      "id": "item-2",
+      "description": "Starshard Amulet item",
+      "imageUrl": "https://images.unsplash.com/photo-1700782326444-9d680d97eaf4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjcnlzdGFsJTIwbmVja2xhY2V8ZW58MHx8fHwxNzY4NjcxOTI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "crystal necklace"
+    },
+    {
+      "id": "item-3",
+      "description": "VIP Pass for Starfall Adventures",
+      "imageUrl": "https://images.unsplash.com/photo-1623669347035-9e85569f095a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxnb2xkJTIwdGlja2V0fGVufDB8fHx8MTc2ODY3MTkyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gold ticket"
+    },
+    {
+      "id": "item-4",
+      "description": "Plasma Rifle item",
+      "imageUrl": "https://images.unsplash.com/photo-1662348318688-a789048d99f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c2NpLWZpJTIwZ3VufGVufDB8fHx8MTc2ODY3MTkyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sci-fi gun"
+    },
+    {
+      "id": "item-5",
+      "description": "Chrono-Booster item",
+      "imageUrl": "https://images.unsplash.com/photo-1704783549722-8dcd98e9cf5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmdXR1cmlzdGljJTIwd2F0Y2h8ZW58MHx8fHwxNzY4NTk1OTcwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "futuristic watch"
+    },
+    {
+      "id": "item-6",
+      "description": "Data Heist Kit for Cybernetic Horizon",
+      "imageUrl": "https://images.unsplash.com/photo-1617839625591-e5a789593135?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb21wdXRlciUyMGNoaXB8ZW58MHx8fHwxNzY4NjcxOTI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "computer chip"
+    },
+    {
+      "id": "item-7",
+      "description": "Rainbow Potion item",
+      "imageUrl": "https://images.unsplash.com/photo-1625207336348-1d1c31a6bd36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb2xvcmZ1bCUyMHBvdGlvbnxlbnwwfHx8fDE3Njg2NzE5Mjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "colorful potion"
+    },
+    {
+      "id": "item-8",
+      "description": "Mythical Egg item",
+      "imageUrl": "https://images.unsplash.com/photo-1580422009859-58ab28223a3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxnbG93aW5nJTIwZWdnfGVufDB8fHx8MTc2ODY3MTkyOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "glowing egg"
+    },
+    {
+      "id": "item-9",
+      "description": "Pet Multiplier Pass for Petopia",
+      "imageUrl": "https://images.unsplash.com/photo-1642062171116-6b5d4eb924e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwYXclMjBjb2luc3xlbnwwfHx8fDE3Njg2NzE5Mjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "paw coins"
+    }
+  ]
 }
