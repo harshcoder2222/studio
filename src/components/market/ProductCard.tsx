@@ -30,7 +30,6 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -46,7 +45,7 @@ export function ProductCard({ item, game }: ProductCardProps) {
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
   const { addOrder } = useOrders();
   const [username, setUsername] = useState("");
-  const [dialogOpen, setDialogOpen] = useState(false);
+  const [isBuyDialogOpen, setIsBuyDialogOpen] = useState(false);
   const isWishlisted = isInWishlist(item.id);
 
   const handleWishlistClick = (e: React.MouseEvent) => {
@@ -59,11 +58,11 @@ export function ProductCard({ item, game }: ProductCardProps) {
     }
   };
 
-  const handleBuy = () => {
+  const handleConfirmBuy = () => {
     if (username.trim()) {
       addOrder(item, username);
       window.open(item.robloxUrl, '_blank', 'noopener,noreferrer');
-      setDialogOpen(false);
+      setIsBuyDialogOpen(false);
       setUsername("");
     }
   };
@@ -117,13 +116,12 @@ export function ProductCard({ item, game }: ProductCardProps) {
                 </Tooltip>
             </TooltipProvider>
 
-            <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-              <DialogTrigger asChild>
-                <Button size="sm" className="bg-primary/90 hover:bg-primary text-primary-foreground">
-                    <ShoppingCart />
-                    Buy
-                </Button>
-              </DialogTrigger>
+            <Button size="sm" className="bg-primary/90 hover:bg-primary text-primary-foreground" onClick={() => setIsBuyDialogOpen(true)}>
+                <ShoppingCart />
+                Buy
+            </Button>
+            
+            <Dialog open={isBuyDialogOpen} onOpenChange={setIsBuyDialogOpen}>
               <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
                   <DialogTitle>Confirm Purchase</DialogTitle>
@@ -142,12 +140,12 @@ export function ProductCard({ item, game }: ProductCardProps) {
                       onChange={(e) => setUsername(e.target.value)}
                       className="col-span-3"
                       placeholder="YourRobloxUsername"
-                      onKeyDown={(e) => e.key === 'Enter' && handleBuy()}
+                      onKeyDown={(e) => e.key === 'Enter' && handleConfirmBuy()}
                     />
                   </div>
                 </div>
                 <DialogFooter>
-                  <Button onClick={handleBuy} disabled={!username.trim()}>Confirm & Buy</Button>
+                  <Button onClick={handleConfirmBuy} disabled={!username.trim()}>Confirm & Buy</Button>
                 </DialogFooter>
               </DialogContent>
             </Dialog>
