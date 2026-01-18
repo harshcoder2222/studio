@@ -61,7 +61,7 @@ export function OrdersTable({ items }: OrdersTableProps) {
                       "Unknown Item"
                     )}
                   </TableCell>
-                  <TableCell>{order.buyer}</TableCell>
+                  <TableCell>{order.buyer || "N/A"}</TableCell>
                   <TableCell>{format(new Date(order.date), "PPP")}</TableCell>
                   <TableCell className="text-right">
                     <div className="flex items-center justify-end gap-1">

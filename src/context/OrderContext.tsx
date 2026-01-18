@@ -25,8 +25,8 @@ export function OrderProvider({ children }: { children: ReactNode }) {
         price: item.price,
       };
       toast({
-        title: "Purchase Recorded",
-        description: `${item.name} purchase by ${buyer} logged.`,
+        title: "Order Logged",
+        description: `Please complete the purchase of ${item.name} for ${buyer} on Roblox.`,
       });
       return [...prevOrders, newOrder];
     });
