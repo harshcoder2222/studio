@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Gamepad2, Heart, LineChart, Search, ShieldCheck, User, LogIn } from "lucide-react";
+import { Gamepad2, Heart, ShieldCheck, User, LogIn } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/shared/Logo";
 import { Button } from "@/components/ui/button";
@@ -19,7 +19,6 @@ import { Badge } from "@/components/ui/badge";
 
 const navLinks = [
   { href: "/", label: "Market", icon: Gamepad2 },
-  { href: "/trends", label: "Trends", icon: LineChart },
   { href: "/wishlist", label: "Wishlist", icon: Heart },
   { href: "/admin", label: "Admin", icon: ShieldCheck },
 ];
