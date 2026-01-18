@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Gamepad2, Heart, ShieldCheck, User, LogIn } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { Gamepad2, Heart, ShieldCheck, User, LogIn, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/shared/Logo";
 import { Button } from "@/components/ui/button";
@@ -25,8 +26,31 @@ const navLinks = [
 
 export function Header() {
   const pathname = usePathname();
+  const router = useRouter();
   const { wishlist } = useWishlist();
-  const isAuthenticated = false; // Mock authentication state
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    // This effect runs on the client-side after hydration.
+    try {
+      const adminAuth = localStorage.getItem("isAdminAuthenticated") === "true";
+      setIsAuthenticated(adminAuth);
+    } catch (e) {
+      console.error("Could not access localStorage. Assuming not authenticated.");
+      setIsAuthenticated(false);
+    }
+  }, [pathname]); // Re-check on every navigation
+
+  const handleLogout = () => {
+    try {
+      localStorage.removeItem("isAdminAuthenticated");
+      setIsAuthenticated(false);
+      router.push("/admin/login");
+    } catch (e) {
+      console.error("Logout failed:", e);
+    }
+  };
+
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm">
@@ -63,19 +87,20 @@ export function Header() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuLabel>Admin</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Profile</DropdownMenuItem>
-                <DropdownMenuItem>Billing</DropdownMenuItem>
-                <DropdownMenuItem>Settings</DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>Log out</DropdownMenuItem>
+                <DropdownMenuItem onSelect={handleLogout} className="cursor-pointer">
+                  <LogOut />
+                  Log out
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
-             <Button>
-                <LogIn />
-                Login
+             <Button asChild>
+                <Link href="/admin/login">
+                  <LogIn />
+                  Login
+                </Link>
              </Button>
           )}
         </div>
