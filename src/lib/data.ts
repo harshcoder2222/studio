@@ -1,4 +1,4 @@
-import type { Game, Item, GameCategory } from './types';
+import type { Game, Item, GameCategory, Order } from './types';
 
 export const gameCategories: GameCategory[] = [
   { id: 'cat-1', name: 'Adventure' },
@@ -195,5 +195,43 @@ export const items: Item[] = [
     rarity: 'Uncommon',
     price: 750,
     robloxUrl: 'https://www.roblox.com/game-pass/0/placeholder',
+  },
+];
+
+export const orders: Order[] = [
+  {
+    id: 'order-1',
+    itemId: 'item-1',
+    buyer: 'PlayerOne',
+    date: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
+    price: 10000,
+  },
+  {
+    id: 'order-2',
+    itemId: 'item-8',
+    buyer: 'SuperCollector',
+    date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
+    price: 25000,
+  },
+  {
+    id: 'order-3',
+    itemId: 'item-4',
+    buyer: 'CyberPunkFan',
+    date: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
+    price: 7500,
+  },
+    {
+    id: 'order-4',
+    itemId: 'item-9',
+    buyer: 'PetMaster',
+    date: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000).toISOString(),
+    price: 3000,
+  },
+  {
+    id: 'order-5',
+    itemId: 'item-7',
+    buyer: 'Newbie',
+    date: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
+    price: 100,
   },
 ];

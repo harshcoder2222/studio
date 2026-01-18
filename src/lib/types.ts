@@ -41,3 +41,11 @@ export type GameCategory = {
   id: string;
   name: string;
 };
+
+export type Order = {
+  id: string;
+  itemId: string;
+  buyer: string;
+  date: string; // ISO date string
+  price: number;
+};
