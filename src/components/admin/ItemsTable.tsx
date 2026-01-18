@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -21,7 +22,7 @@ import {
 import { ItemForm } from "./ItemForm";
 import type { Item, Game } from "@/lib/types";
 import { useToast } from "@/hooks/use-toast";
-import { PlusCircle, Edit, Trash2 } from "lucide-react";
+import { PlusCircle, Edit, Trash2, ExternalLink } from "lucide-react";
 import { RobuxIcon } from "@/components/icons";
 
 interface ItemsTableProps {
@@ -68,9 +69,12 @@ export function ItemsTable({ initialItems, games }: ItemsTableProps) {
   return (
     <div>
       <div className="flex justify-end mb-4">
-        <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
+        <Dialog open={isFormOpen} onOpenChange={(open) => {
+          setIsFormOpen(open);
+          if (!open) setEditingItem(undefined);
+        }}>
           <DialogTrigger asChild>
-            <Button onClick={() => setEditingItem(undefined)}>
+            <Button>
               <PlusCircle /> Add New Item
             </Button>
           </DialogTrigger>
@@ -96,15 +100,16 @@ export function ItemsTable({ initialItems, games }: ItemsTableProps) {
               <TableHead>Category</TableHead>
               <TableHead>Rarity</TableHead>
               <TableHead className="text-right">Price</TableHead>
-              <TableHead className="w-[100px]">Actions</TableHead>
+              <TableHead>Link</TableHead>
+              <TableHead className="w-[100px] text-right">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {items.map((item) => (
+            {items.length > 0 ? items.map((item) => (
               <TableRow key={item.id}>
                 <TableCell className="font-medium">
                   <div className="flex items-center gap-3">
-                    <Image src={item.imageUrl} alt={item.name} width={40} height={40} className="rounded-md" />
+                    <Image src={item.imageUrl} alt={item.name} width={40} height={40} className="rounded-md object-cover" />
                     <span>{item.name}</span>
                   </div>
                 </TableCell>
@@ -118,7 +123,14 @@ export function ItemsTable({ initialItems, games }: ItemsTableProps) {
                   </div>
                 </TableCell>
                 <TableCell>
-                  <div className="flex items-center gap-2">
+                  <Button asChild variant="outline" size="icon">
+                    <a href={item.robloxUrl} target="_blank" rel="noopener noreferrer" aria-label={`View ${item.name} on Roblox`}>
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  </Button>
+                </TableCell>
+                <TableCell>
+                  <div className="flex items-center justify-end gap-1">
                     <Button variant="ghost" size="icon" onClick={() => handleEdit(item)}>
                       <Edit className="h-4 w-4" />
                     </Button>
@@ -128,7 +140,13 @@ export function ItemsTable({ initialItems, games }: ItemsTableProps) {
                   </div>
                 </TableCell>
               </TableRow>
-            ))}
+            )) : (
+              <TableRow>
+                <TableCell colSpan={7} className="h-24 text-center">
+                  No items found.
+                </TableCell>
+              </TableRow>
+            )}
           </TableBody>
         </Table>
       </div>
