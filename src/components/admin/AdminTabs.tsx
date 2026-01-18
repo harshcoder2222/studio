@@ -3,7 +3,7 @@ import { ItemsTable } from "./ItemsTable";
 import { GamesTable } from "./GamesTable";
 import { CategoriesTable } from "./CategoriesTable";
 import { OrdersTable } from "./OrdersTable";
-import { items, games, gameCategories, orders } from "@/lib/data";
+import { items, games, gameCategories } from "@/lib/data";
 
 export function AdminTabs() {
   return (
@@ -24,7 +24,7 @@ export function AdminTabs() {
         <CategoriesTable initialCategories={gameCategories} />
       </TabsContent>
       <TabsContent value="orders" className="mt-4">
-        <OrdersTable initialOrders={orders} items={items} />
+        <OrdersTable items={items} />
       </TabsContent>
     </Tabs>
   );

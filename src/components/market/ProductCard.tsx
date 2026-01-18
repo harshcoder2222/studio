@@ -23,6 +23,19 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useState } from "react";
+import { useOrders } from "@/context/OrderContext";
 
 interface ProductCardProps {
   item: Item;
@@ -31,6 +44,9 @@ interface ProductCardProps {
 
 export function ProductCard({ item, game }: ProductCardProps) {
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+  const { addOrder } = useOrders();
+  const [username, setUsername] = useState("");
+  const [dialogOpen, setDialogOpen] = useState(false);
   const isWishlisted = isInWishlist(item.id);
 
   const handleWishlistClick = (e: React.MouseEvent) => {
@@ -40,6 +56,15 @@ export function ProductCard({ item, game }: ProductCardProps) {
       removeFromWishlist(item.id);
     } else {
       addToWishlist(item);
+    }
+  };
+
+  const handleBuy = () => {
+    if (username.trim()) {
+      addOrder(item, username);
+      window.open(item.robloxUrl, '_blank', 'noopener,noreferrer');
+      setDialogOpen(false);
+      setUsername("");
     }
   };
 
@@ -92,12 +117,40 @@ export function ProductCard({ item, game }: ProductCardProps) {
                 </Tooltip>
             </TooltipProvider>
 
-            <a href={item.robloxUrl} target="_blank" rel="noopener noreferrer">
-              <Button size="sm" className="bg-primary/90 hover:bg-primary text-primary-foreground">
-                  <ShoppingCart />
-                  Buy
-              </Button>
-            </a>
+            <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+              <DialogTrigger asChild>
+                <Button size="sm" className="bg-primary/90 hover:bg-primary text-primary-foreground">
+                    <ShoppingCart />
+                    Buy
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle>Confirm Purchase</DialogTitle>
+                  <DialogDescription>
+                    Enter your username to complete the purchase for &quot;{item.name}&quot;. The item will be delivered to this account.
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="grid gap-4 py-4">
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="username" className="text-right">
+                      Username
+                    </Label>
+                    <Input
+                      id="username"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                      className="col-span-3"
+                      placeholder="YourRobloxUsername"
+                      onKeyDown={(e) => e.key === 'Enter' && handleBuy()}
+                    />
+                  </div>
+                </div>
+                <DialogFooter>
+                  <Button onClick={handleBuy} disabled={!username.trim()}>Confirm & Buy</Button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
         </div>
       </CardFooter>
     </Card>

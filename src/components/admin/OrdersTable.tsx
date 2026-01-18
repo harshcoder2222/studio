@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { format } from "date-fns";
 import {
@@ -13,14 +12,14 @@ import {
 } from "@/components/ui/table";
 import type { Order, Item } from "@/lib/types";
 import { RobuxIcon } from "@/components/icons";
+import { useOrders } from "@/context/OrderContext";
 
 interface OrdersTableProps {
-  initialOrders: Order[];
   items: Item[];
 }
 
-export function OrdersTable({ initialOrders, items }: OrdersTableProps) {
-  const [orders] = useState(initialOrders);
+export function OrdersTable({ items }: OrdersTableProps) {
+  const { orders } = useOrders();
 
   const itemsMap = items.reduce((acc, item) => {
     acc[item.id] = item;

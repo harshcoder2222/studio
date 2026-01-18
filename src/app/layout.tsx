@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { WishlistProvider } from '@/context/WishlistContext';
+import { OrderProvider } from '@/context/OrderContext';
 
 export const metadata: Metadata = {
   title: 'Universe Game Market',
@@ -25,8 +26,10 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased">
         <WishlistProvider>
-          {children}
-          <Toaster />
+          <OrderProvider>
+            {children}
+            <Toaster />
+          </OrderProvider>
         </WishlistProvider>
       </body>
     </html>
